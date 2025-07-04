@@ -66,7 +66,10 @@ var commands = []*discordgo.ApplicationCommand{
 	},
 }
 
-const TOKEN_DISCORD = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+const (
+	TOKEN_DISCORD        = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+	TOKEN_DISCORD_BACKUP = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+)
 
 var (
 	App   = flag.String("app", "", "Application ID")
