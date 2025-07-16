@@ -66,11 +66,10 @@ var commands = []*discordgo.ApplicationCommand{
 	},
 }
 
-const TOKEN_DISCORD = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
-
 var (
 	App   = flag.String("app", "", "Application ID")
 	Guild = flag.String("guild", "", "Guild ID")
+	Token = flag.String("token", "", "Discord Bot Token")
 )
 
 func main() {
@@ -78,8 +77,11 @@ func main() {
 	if *App == "" {
 		log.Fatal("application id is not set")
 	}
+	if *Token == "" {
+		log.Fatal("discord bot token is not set")
+	}
 
-	session, _ := discordgo.New("Bot " + TOKEN_DISCORD)
+	session, _ := discordgo.New("Bot " + *Token)
 
 	session.AddHandler(func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		if i.Type != discordgo.InteractionApplicationCommand {
